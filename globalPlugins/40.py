@@ -19,24 +19,24 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		while True:
 			time.sleep(1)
 			cur = win32api.GetTickCount()
-			if cur>1800000 and not self.shown and cur < 1801002:
-				self.shown=True
+			if cur > 1800000 and not self.shown and cur < 1801002:
+				self.shown = True
 				gui.messageBox("this product will stop working in 10 minutes and will require a reboot to continue.", "40 minute mode is about to expire:", wx.ID_OK)
-			self.shown=False
-			if cur>2160000 and cur < 2161002 and not self.shown:
-				self.shown=True
+			self.shown = False
+			if cur > 2160000 and cur < 2161002 and not self.shown:
+				self.shown = True
 				gui.messageBox("This product will stop working in 6 minutes and will require a reboot to continue.", "40 minute mode is about to expire.", wx.ID_OK)
-			self.shown=False
-			if cur> 2220000 and not self.shown and cur < 2221002:
+			self.shown = False
+			if cur > 2220000 and not self.shown and cur < 2221002:
 				self.shown=True
 				gui.messageBox("This product will stop working in 3 minutes and will require a reboot to continue. Please save any unsaved work now.", "40 minute 	mode is about to expire.", wx.ID_OK)
-			self.shown=False
+			self.shown = False
 			if cur > 2340000 and not self.shown and cur < 2341002:
-				self.shown=True
+				self.shown = True
 				gui.messageBox("This product will stop working in 1 minutes and will require a reboot to continue. Please save any unsaved work now.", "40 minute 	mode is about to expire.", wx.ID_OK)
-			self.shown=False
+			self.shown = False
 			if cur > 2400000 and not self.shown :
-				self.shown=True
+				self.shown = True
 				gui.messageBox("This demo version has expired, it will now stop working. Please restart this computer now.", "40 minute mode has expired.", wx.ID_OK)
 				gui.messageBox("Gotcha", "April Fools.", wx.ID_OK)
 				self.close()
