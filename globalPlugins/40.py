@@ -1,8 +1,10 @@
 import globalPluginHandler
-from .win32api import *
 import gui, wx
 from threading import Thread
 import time
+import ctypes
+
+kernel32 = ctypes.windll.kernel32
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def __init__(self):
@@ -18,7 +20,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			gui.messageBox("This product requires authorization and will continue to run in 40 minute mode until an authorization key has been purchased. The best way to update authorization for this product is to open your bank, and let the money pore out.", "activation")
 		while True:
 			time.sleep(1)
-			cur = win32api.GetTickCount()
+			cur = kernel32.GetTickCount()
 			if cur > 1800000 and not self.shown and cur < 1801002:
 				self.shown = True
 				gui.messageBox("this product will stop working in 10 minutes and will require a reboot to continue.", "40 minute mode is about to expire:")
